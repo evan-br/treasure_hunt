@@ -1,13 +1,14 @@
 .container {
-  background-color: black;
+  background-color: rgb(148, 148, 148);
   color: white;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 100vh;
+  min-height: 100vh; 
   text-align: center;
   font-size: 1.5rem;
+  overflow: auto; 
 }
 
 .flags-container {
@@ -57,4 +58,32 @@ button {
 
 button:hover {
   background-color: #00bfff;
+}
+
+#h2 {
+  position: top;
+  width: 100%;
+  text-align: center;
+  font-size: 100%;
+  font-family: sans-serif;
+  color: rgb(0, 0, 0);
+}
+
+/* Efeito confete */
+h1 {
+  position: absolute;
+  margin-top: 30vh;
+  width: 100%;
+  text-align: center;
+  font-size: 333%;
+  font-family: sans-serif;
+  color: grey;
+  opacity: 0.5;
+}
+
+#canvas {
+  overflow-y: hidden;
+  overflow-x: hidden;
+  width: 100%;
+  margin: 0;
 }

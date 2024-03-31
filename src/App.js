@@ -1,30 +1,44 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, Component } from 'react';
 import './App.css';
+import Confetes from './Draw.js';
 
 const App = () => {
   // eslint-disable-next-line
-  const [passwords, setPasswords] = useState(['senha secreta 123', 'marshmallow', 'mas que chulé', 'e.t. telefone casa', 'i believe i can fly', 'tu tu tu tu', 'eevee raboot gengar']);
+  const [passwords, setPasswords] = useState(['dinamarca', 'neblina', 'circunferência', 'dezenove', 'tengam', 'junge', 'noveottosevenseiscinqvier']);
   // eslint-disable-next-line
   const [hints, setHints] = useState([
-    'DICA 1: Aqui vai a dica de onde encontrar a primeira senha: \n em duas partes: "o que o exército faz" do "veículo automotor"',
-    'DICA 2: Muy bien mis queridos, ahora un consejo en español para calentar sus corazones: pastel en la cara',
-    'DICA 3: очень хорошо узнал что это русский! пароль 3 внутри носка, удачи!',
-    'DICA 4: Parabéns mais uma vez! Essa senha 3 não foi fácil né!? \n Espero que nossos segredos estejam bem guardados e seguros, porque a dica para a senha número 4 está escondida junto com uma história de extraterrestre. \n     Vamos lá! Boa sorte !!!',
-    'DICA 5: Parabéns! Vocês são uma equipe e tanto!! Se eu pudesse emitir som agora mesmo seria a risada do Alf, se não conhecem, fica a dica para assistirem , há há ha !!! \n Para a dica da senha 5 eu vou dizer uma coisa, escondi na toca das lagartixas !!! Boa sorte !!! Podem pedir ajuda de alguém bem alto pq eu posso ter exagerado nesse esconderijo',
-    'DICA 6: Incrível!!!! Mais uma senha desvendada!!! Garanto que não foi tão difícil assim para vocês, nosso segredo ainda está seguro, e vamos logo para a dica 6, atenção essa dica é a preparação para a senha final, então prestem muita atenção ! \n (🧠- REBRO) + (🐙 - LA) + 🏡 + ( 🎲 - da ) + 2x(👠- sa - to) + i \n Diquinha: essas imagens se chamam emojis e representam palavras',
-    'DICA 7: Sensacional !!!! Vocês já desvendaram quase todas e estão prontas para a última e mais dificil de todas !!! Prestem atenção essa senha tem tres partes em uma só, Respirem fundo... e sigam .... Existe um universo cheio de criaturas mágicas catalogadas, que vivem tanto na natureza quanto com seus treinadores, a partir dos números de todas as dicas que vocês encontraram na jornada e um pouco de lógica vocês vão encontrar o número e depois a senha que estão procurando!!!! BOA SORTE !!!!',
+    'DICA 1: Aqui vai a dica de onde encontrar a primeira senha: \n Esse "golden material" é bege',
+    'DICA 2: Agora vocês precisam encontrar nesta casa o componente químico NaCl 0,9%, vão, vão vão !!!',
+    'DICA 3: Obrigado pelo Cloreto de Sódio! Já descobriram para que serve? Vamos continuar essa aventura no mundo da matemática? Em que situação, dentro dessa casa, foi necessário calcular as divisões de um círculo? ',
+    'DICA 4: Essa foi tranquila, em !!! Depois brinquem com diferente divisões de círculos, vocês vão gostar! Usem um compasso! Agora vamos aprender um pouco de português: Já ouviram falar do estilo de poema chamado soneto? Vinícius de Moraes é um famoso escritor brasileiro, autor do poema chamado Soneto da Felicidade! Para ser considerado um soneto, o poema é escrito seguinto à risca uma métrica onde cada verso, cada linha, possui dez sílabas tonais. Tem mais alguma coisa nessa casa que tem dez lados? ',
+    'DICA 5: Oxente, que vocês são feras! já chegaram até aqui! Vamos simplificar um pouco e falar de pokemon! Eu gosto muito do 0081, que tal essa dica?',
+    'DICA 6: Hallo, ich habe ein Duolingo in dieser Sprache gefunden',
+    'DICA 7: Sensacional !!!! Vocês já desvendaram quase todas e estão prontas para a última e mais dificil de todas !!! Prestem atenção essa senha tem diversas partes. Mas as dicas já foram dadas, a única coisa que eu posso dizer é que é tudo junto e minúsculas!!!! BOA SORTE !!!!',
   ]);
   const [correctPasswords, setCorrectPasswords] = useState(new Array(7).fill(false));
   const [message, setMessage] = useState(
-    `Bem-vindos, Rhuan Vitor e Beatriz!!! \n
-    Nossa aventura começa aqui, tragam sete senhas \n
-    para eu saber que são vocês mesmos e eu conto \n
-    se trouxe ovos para vocês! \n
-    Se precisarem de dica escrevam dica, \n
-    seguido do número da dica que precisam. \n
-    Comecem pela dica1 !!! \n
+    <>
+    <div id='h2'>
+
+      Bem-vindos, Rhuan Vitor e Beatriz!!!
+      <br />
+      Nossa aventura começa aqui, tragam sete senhas
+      para desbloquearem a localização dos chocolates.
+      <br /> 
+      Será que vão conseguir?
+      <br /> 
+      Se não liberarem a localização até 12h ...
+      Existe um dispositivo que ira derreter todo o chocolate!!!
+      CORRAM !!!
+      <br /> 
+      Se precisarem de dica escrevam dica,
+      seguido do número da dica que precisam.
+      Comecem pela "dica1" !!!
+      <br /> 
       E BOA SORTE !!!
-    `);
+    </div>
+    </>
+  );
   const [hintMessage, setHintMessage] = useState('');
 
   const handlePasswordSubmit = (event) => {
@@ -39,7 +53,7 @@ const App = () => {
         return newCorrectPasswords;
       });
       if (index === 6) {
-        setMessage(`OS OVOS ESTAO EMBAIXO DA CAMA DOS PAIS!!!!!! \n FELIZ PASCOAA !!!!`);
+        setMessage(`A ÚLTIMA PISTA ESTÁ EM UM INSTRUMENTO!!!!!! \n FELIZ PASCOAA !!!!`);
         setHintMessage('');
       }else{
         setMessage(`Parabéns, vocês acertaram a senha da dica ${index + 1}!`);
@@ -73,9 +87,10 @@ const App = () => {
     );
   };
 
+
   return (
     <div className="container">
-      <h1>{message}</h1>
+      <h2>{message}</h2>
       {hintMessage && <p className="hint">{hintMessage}</p>}
       {renderFlags()}
       <form onSubmit={handlePasswordSubmit}>
